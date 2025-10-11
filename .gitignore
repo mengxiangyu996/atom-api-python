@@ -1,0 +1,23 @@
+# Mac OS X files
+.DS_Store
+
+# Editor
+.idea
+.vscode
+
+# Binaries for programs and plugins
+*.exe
+*.exe~
+
+.venv/
+__pycache__/
+*.py[cod]
+
+# Dist directories
+dist/
+
+# 文件目录
+web/upload
+
+# 配置文件
+.env

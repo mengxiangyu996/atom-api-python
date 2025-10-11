@@ -1,0 +1,11 @@
+[project]
+name = "ruoyi-py"
+version = "0.0.1"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.uv]
+index-url = "https://mirrors.aliyun.com/pypi/simple/"
+package = false
