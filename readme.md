@@ -1,4 +1,4 @@
-<h1 align="center" style="margin: 30px 0 30px; font-weight: bold; font-size: 30px">RuoYi-Go</h1>
+<h1 align="center" style="margin: 30px 0 30px; font-weight: bold; font-size: 30px">ruoyi-py</h1>
 <h4 align="center">基于FastAPI+Tortoise实现的若依服务端脚手架</h4>
 
 ## 平台简介
@@ -7,8 +7,6 @@
 * 其他生态组件请访问 **[若依官网](http://ruoyi.vip/)**
 
 ## 后端运行
-> **提示：** 运行前请先安装好 `go` 环境，版本 `1.18` 以上。
-
     # 克隆项目
     git clone https://github.com/mengxiangyu996/ruoyi-py.git
 
@@ -70,10 +68,10 @@
 - [RuoYi-Vue3-ts](https://github.com/zzh948498/RuoYi-Vue3-ts)
 
 ## Star History
-<a href="https://www.star-history.com/#mengxiangyu996/ruoyi-go&Date">
+<a href="https://www.star-history.com/#mengxiangyu996/ruoyi-py&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=mengxiangyu996/ruoyi-go&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=mengxiangyu996/ruoyi-go&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=mengxiangyu996/ruoyi-go&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=mengxiangyu996/ruoyi-py&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=mengxiangyu996/ruoyi-py&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=mengxiangyu996/ruoyi-py&type=Date" />
  </picture>
 </a>
