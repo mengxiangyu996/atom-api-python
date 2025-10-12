@@ -1,0 +1,66 @@
+# 项目相关配置
+ruoyi:
+  # 名称
+  name: ruoyi-py
+  # 版本
+  version: 0.0.1
+  # 版权年份
+  copyright: 2024
+  # 域名
+  domain: localhost:3000
+  # 启用SSL
+  ssl: false
+  # 文件上传路径
+  uploadPath: web/upload/
+
+# 开发环境配置
+server:
+  # 地址
+  host: localhost
+  # 端口
+  port: 3000
+  # 开发环境
+  debug: true
+
+# 数据库配置
+mysql:
+  # 地址
+  host: localhost
+  # 端口，默认为3306
+  port: 3306
+  # 数据库名称
+  database: ruoyi-py
+  # 用户名
+  username: root
+  # 密码
+  password: root
+  # 编码
+  charset: utf8mb4
+
+# redis配置
+redis:
+  # 地址
+  host: localhost
+  # 端口，默认为6379
+  port: 6379
+  # 数据库索引
+  database: 0
+  # 密码
+  password:
+
+# token配置
+token:
+  # 令牌自定义标识
+  header: Authorization
+  # 令牌密钥
+  secret: abcdefghijklmnopqrstuvwxyz
+  # 令牌有效期（默认30分钟）
+  expireTime: 30
+
+# 用户配置
+user:
+  password:
+    # 密码最大错误次数
+    maxRetryCount: 5
+    # 密码锁定时间（默认10分钟）
+    lockTime: 10
