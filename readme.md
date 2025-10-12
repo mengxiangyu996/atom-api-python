@@ -68,21 +68,10 @@
 - [RuoYi-Vue3-ts](https://github.com/zzh948498/RuoYi-Vue3-ts)
 
 ## Star History
-<picture>
-  <source
-    media="(prefers-color-scheme: dark)"
-    srcset="
-      https://api.star-history.com/svg?repos=mengxiangyu996/ruoyi-py&type=Date&theme=dark
-    "
-  />
-  <source
-    media="(prefers-color-scheme: light)"
-    srcset="
-      https://api.star-history.com/svg?repos=mengxiangyu996/ruoyi-py&type=Date
-    "
-  />
-  <img
-    alt="Star History Chart"
-    src="https://api.star-history.com/svg?repos=mengxiangyu996/ruoyi-py&type=Date"
-  />
-</picture>
+<a href="https://www.star-history.com/#mengxiangyu996/ruoyi-py&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=mengxiangyu996/ruoyi-py&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=mengxiangyu996/ruoyi-py&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=mengxiangyu996/ruoyi-py&type=Date" />
+ </picture>
+</a>
