@@ -2,8 +2,7 @@ from config.config import config
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from framework.database import database
-from framework.redis import redis
+from framework import dal
 from common import exception
 from pathlib import Path
 
@@ -15,30 +14,21 @@ def main() -> FastAPI:
         version=config.ruoyi.version
     )
 
-    # 在应用中注册数据访问层的生命周期管理器
     async def startup_event():
         try:
             # 启动时初始化数据库
-            await database.init(
-                db_url=f"mysql://{config.mysql.username}:{config.mysql.password}@{config.mysql.host}:{config.mysql.port}/{config.mysql.database}",
-                modules={
-                    "models": ["app.model"],
-                },
-                use_tz=False,
-                timezone="Asia/Shanghai",
-            )
+            db_url = f"mysql+pymysql://{config.mysql.username}:{config.mysql.password}@{config.mysql.host}:{config.mysql.port}/{config.mysql.database}"
+            dal.init_dabatase(db_url)
 
             # 启动时初始化redis
             # 无密码："redis://:@{config.redis.host}:{config.redis.port}/{config.redis.database}
-            await redis.init(
-                redis_url=f"redis://:{config.redis.password}@{config.redis.host}:{config.redis.port}/{config.redis.database}"
-            )
+            rds_url = f"redis://:{config.redis.password}@{config.redis.host}:{config.redis.port}/{config.redis.database}"
+            dal.init_redis(rds_url)
         except Exception as e:
             raise Exception(f"服务初始化失败：{str(e)}") from e
 
     async def shutdown_event():
-        await database.close()
-        await redis.close()
+        await dal.close_redis()
 
     # 注册启动和关闭事件
     app.add_event_handler("startup", startup_event)
