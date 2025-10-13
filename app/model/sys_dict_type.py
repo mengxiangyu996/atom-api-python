@@ -3,18 +3,17 @@ from sqlmodel import SQLModel, Field
 from zoneinfo import ZoneInfo
 
 
-class SysConfig(SQLModel, table=True):
+class SysDictType(SQLModel, table=True):
     """
-    参数配置表
+    字典类型表
     """
 
-    __tablename__ = "sys_config"
+    __tablename__ = "sys_dict_type"
 
-    config_id: int = Field(description="参数id", primary_key=True)
-    config_name: str = Field(description="参数名称", default="")
-    config_key: str = Field(description="参数键名", default="")
-    config_value: str = Field(description="参数键值", default="")
-    config_type: str = Field(description="系统内置：Y-是；N-否", default="N")
+    dict_id: int = Field(description="字典id", primary_key=True)
+    dict_name: str = Field(description="字典名称", default="")
+    dict_type: str = Field(description="字典类型", default="")
+    status: str = Field(description="状态：0-正常；1-停用", default="0")
     create_by: str = Field(description="创建者", default="")
     create_time: datetime = Field(
         description="创建时间", default_factory=lambda: datetime.now(ZoneInfo("Asia/Shanghai")))
