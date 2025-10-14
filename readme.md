@@ -1,8 +1,8 @@
 <h1 align="center" style="margin: 30px 0 30px; font-weight: bold; font-size: 30px">RuoYi-Py</h1>
-<h4 align="center">基于FastAPI+SqlModel实现的若依服务端脚手架</h4>
+<h4 align="center">基于FastAPI+SQLModel实现的若依服务端脚手架</h4>
 
 ## 平台简介
-* 本仓库为后端技术栈 [FastAPI](https://fastapi.tiangolo.com/zh) + [SqlModel](https://sqlmodel.cn) 的 `python` 版本。
+* 本仓库为后端技术栈 [FastAPI](https://fastapi.tiangolo.com/zh) + [SQLModel](https://sqlmodel.cn) 的 `python` 版本。
 * 配套前端代码仓库地址 [RuoYi-Vue3](https://github.com/yangzongzhuan/RuoYi-Vue3) 或使用 [RuoYi-Vue3-ts](https://github.com/zzh948498/RuoYi-Vue3-ts)
 * 其他生态组件请访问 **[若依官网](http://ruoyi.vip/)**
 
@@ -63,7 +63,7 @@
 
 ## 特别感谢（排名不分先后）
 - [FastAPI](https://fastapi.tiangolo.com)
-- [SqlModel](https://sqlmodel.tiangolo.com)
+- [SQLModel](https://sqlmodel.tiangolo.com)
 - [RuoYi-Vue3](https://github.com/yangzongzhuan/RuoYi-Vue3)
 - [RuoYi-Vue3-ts](https://github.com/zzh948498/RuoYi-Vue3-ts)
 
