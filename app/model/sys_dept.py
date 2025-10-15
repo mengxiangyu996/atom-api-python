@@ -1,6 +1,9 @@
 from datetime import datetime
-from sqlmodel import SQLModel, Field
+from typing import List
+from sqlmodel import SQLModel, Field, Relationship
 from zoneinfo import ZoneInfo
+from app.model.sys_user import SysUser
+from app.model.sys_role import SysRole
 
 
 class SysDept(SQLModel, table=True):
@@ -26,3 +29,8 @@ class SysDept(SQLModel, table=True):
     update_time: datetime = Field(
         description="更新时间", default_factory=lambda: datetime.now(ZoneInfo("Asia/Shanghai")))
     delete_time: datetime = Field(description="删除时间", default=None)
+
+    # 表关联
+    sys_users: List[SysUser] = Relationship(back_populates="sys_dept")
+    sys_roles: List[SysRole] = Relationship(
+        back_populates="sys_depts", link_model="SysRoleDept")

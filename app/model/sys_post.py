@@ -1,6 +1,8 @@
 from datetime import datetime
-from sqlmodel import SQLModel, Field
+from typing import List
+from sqlmodel import SQLModel, Field, Relationship
 from zoneinfo import ZoneInfo
+from app.model.sys_user import SysUser
 
 
 class SysPost(SQLModel, table=True):
@@ -24,3 +26,7 @@ class SysPost(SQLModel, table=True):
     delete_time: datetime = Field(
         description="删除时间", default=None)
     remark: str = Field(description="备注", default=None)
+
+    # 表关联
+    sys_users: List[SysUser] = Relationship(
+        back_populates="sys_posts", link_model="SysUserPost")

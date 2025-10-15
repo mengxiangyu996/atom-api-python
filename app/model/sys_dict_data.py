@@ -1,6 +1,7 @@
 from datetime import datetime
-from sqlmodel import SQLModel, Field
+from sqlmodel import SQLModel, Field, Relationship
 from zoneinfo import ZoneInfo
+from app.model.sys_dict_type import SysDictType
 
 
 class SysDictData(SQLModel, table=True):
@@ -14,7 +15,8 @@ class SysDictData(SQLModel, table=True):
     dict_sort: int = Field(description="字典排序", default=0)
     dict_label: str = Field(description="字典标签", default="")
     dict_value: str = Field(description="字典键值", default="")
-    dict_type: str = Field(description="字典类型", default="")
+    dict_type: str = Field(description="字典类型", default="",
+                           foreign_key="sys_dict_type.dict_type")
     css_class: str = Field(description="样式属性（其他样式扩展）")
     list_class: str = Field(description="表格回显样式")
     is_default: str = Field(description="是否默认：Y-是；N-否", default="N")
@@ -26,3 +28,7 @@ class SysDictData(SQLModel, table=True):
     update_time: datetime = Field(
         description="更新时间", default_factory=lambda: datetime.now(ZoneInfo("Asia/Shanghai")))
     remark: str = Field(description="备注", default=None)
+
+    # 表关联
+    sys_dict_type: SysDictType | None = Relationship(
+        back_populates="sys_dict_data")

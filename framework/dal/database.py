@@ -10,6 +10,9 @@ class _Database:
         self._engine = create_engine(db_url, echo=True)
         self._lock = threading.Lock()
 
+    def close(self):
+        self._engine.dispose()
+
     @property
     def client(self):
         return self._engine

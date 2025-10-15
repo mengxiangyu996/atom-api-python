@@ -28,7 +28,8 @@ def main() -> FastAPI:
             raise Exception(f"服务初始化失败：{str(e)}") from e
 
     async def shutdown_event():
-        await dal.close_redis()
+        dal.close_database()
+        dal.close_redis()
 
     # 注册启动和关闭事件
     app.add_event_handler("startup", startup_event)

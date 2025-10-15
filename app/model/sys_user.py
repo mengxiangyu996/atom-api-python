@@ -1,6 +1,10 @@
 from datetime import datetime
-from sqlmodel import SQLModel, Field
+from typing import List
+from sqlmodel import SQLModel, Field, Relationship
 from zoneinfo import ZoneInfo
+from app.model.sys_role import SysRole
+from app.model.sys_dept import SysDept
+from app.model.sys_post import SysPost
 
 
 class SysUser(SQLModel, table=True):
@@ -11,7 +15,8 @@ class SysUser(SQLModel, table=True):
     __tablename__ = "sys_user"
 
     user_id: int = Field(description="用户id", primary_key=True)
-    dept_id: int = Field(description="部门id", default=0)
+    dept_id: int = Field(description="部门id", default=0,
+                         foreign_key="sys_dept.dept_id")
     user_name: str = Field(description="用户账号", default="")
     nick_name: str = Field(description="用户昵称", default="")
     user_type: str = Field(description="用户类型：00-系统用户", default="00")
@@ -32,3 +37,10 @@ class SysUser(SQLModel, table=True):
     delete_time: datetime = Field(
         description="删除时间", default=None)
     remark: str = Field(description="备注", default=None)
+
+    # 表关联
+    sys_roles: List[SysRole] = Relationship(
+        back_populates="sys_users", link_model="SysUserRole")
+    sys_dept: SysDept | None = Relationship(back_populates="sys_users")
+    sys_posts: List[SysPost] = Relationship(
+        back_populates="sys_users", link_model="SysUserPost")

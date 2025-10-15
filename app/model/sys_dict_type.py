@@ -1,6 +1,8 @@
 from datetime import datetime
-from sqlmodel import SQLModel, Field
+from typing import List
+from sqlmodel import SQLModel, Field, Relationship
 from zoneinfo import ZoneInfo
+from app.model.sys_dict_data import SysDictData
 
 
 class SysDictType(SQLModel, table=True):
@@ -21,3 +23,7 @@ class SysDictType(SQLModel, table=True):
     update_time: datetime = Field(
         description="更新时间", default_factory=lambda: datetime.now(ZoneInfo("Asia/Shanghai")))
     remark: str = Field(description="备注", default=None)
+
+    # 表关联
+    sys_dict_data: List[SysDictData] = Relationship(
+        back_populates="sys_dict_type")

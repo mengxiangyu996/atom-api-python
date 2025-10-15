@@ -1,6 +1,10 @@
 from datetime import datetime
-from sqlmodel import SQLModel, Field
+from typing import List
+from sqlmodel import SQLModel, Field, Relationship
 from zoneinfo import ZoneInfo
+from app.model.sys_user import SysUser
+from app.model.sys_menu import SysMenu
+from app.model.sys_dept import SysDept
 
 
 class SysRole(SQLModel, table=True):
@@ -28,3 +32,11 @@ class SysRole(SQLModel, table=True):
     delete_time: datetime = Field(
         description="删除时间", default=None)
     remark: str = Field(description="备注", default=None)
+
+    # 表关联
+    sys_users: List[SysUser] = Relationship(
+        back_populates="sys_roles", link_model="SysUserRole")
+    sys_menus: List[SysMenu] = Relationship(
+        back_populates="sys_roles", link_model="SysRoleMenu")
+    sys_depts: List[SysDept] = Relationship(
+        back_populates="sys_roles", link_model="SysRoleDept")
