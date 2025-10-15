@@ -47,7 +47,13 @@ def main() -> FastAPI:
     # 注册异常处理
     exception.register_exception(app)
 
-    # 挂载静态文件
+    # 设置文件资源目录
+    # 如果前端使用的是 history 路由模式，需要使用 nginx 代理，注释 admin 挂载逻辑
+    # 如果前后端不分离方式部署需要配置前端为 hash 路由模式，解除 admin 挂载逻辑
+    # admin_dir = Path("web/admin")
+    # admin_dir.mkdir(parents=True, exist_ok=True)
+    # app.mount(path="/admin", app=StaticFiles(directory=admin_dir), name="admin")
+    # 设置上传文件目录
     storage_dir = Path(config.ruoyi.upload_path)
     storage_dir.mkdir(parents=True, exist_ok=True)
     app.mount(path="/storage",
