@@ -2,6 +2,7 @@ from typing import TypeVar, Generic
 from framework import dal
 from sqlmodel import SQLModel
 
+
 T = TypeVar("T", bound=SQLModel)
 
 
