@@ -1,5 +1,5 @@
 <h1 align="center" style="margin: 30px 0 30px; font-weight: bold; font-size: 30px">atom-api-python</h1>
-<h4 align="center">基于FastAPI+SQLModel实现的服务端参考型脚手架</h4>
+<h4 align="center">基于Python+FastAPI+SQLModel实现的服务端参考型脚手架</h4>
 
 ## 后端运行
     # 克隆项目
