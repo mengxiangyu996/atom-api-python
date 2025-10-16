@@ -8,10 +8,10 @@ class BaseApiException(Exception):
     基础应用异常类
     """
 
-    def __init__(self, *, code: int, msg: str):
+    def __init__(self, *, code: int, message: str):
         self.code = code
-        self.msg = msg
-        super().__init__(self.msg)
+        self.message = message
+        super().__init__(self.message)
 
 
 class ExceptionHandler:
@@ -27,7 +27,7 @@ class ExceptionHandler:
         异常处理方法
         """
 
-        return Response.fail(code=exc.code, msg=exc.msg)
+        return Response.fail(code=exc.code, message=exc.message)
 
 
 def register_exception(app: FastAPI):
@@ -46,8 +46,8 @@ class ValidationException(BaseApiException):
     请求参数校验异常类
     """
 
-    def __init__(self, msg: str):
-        super().__init__(code=500, msg=msg)
+    def __init__(self, message: str):
+        super().__init__(code=10500, message=message)
 
 
 class BusinessException(BaseApiException):
@@ -55,8 +55,8 @@ class BusinessException(BaseApiException):
     业务异常类
     """
 
-    def __init__(self, msg: str):
-        super().__init__(code=500, msg=msg)
+    def __init__(self, message: str):
+        super().__init__(code=10500, message=message)
 
 
 class AuthException(BaseApiException):
@@ -64,8 +64,8 @@ class AuthException(BaseApiException):
     认证异常类
     """
 
-    def __init__(self, msg: str):
-        super().__init__(code=401, msg=msg)
+    def __init__(self, message: str):
+        super().__init__(code=10401, message=message)
 
 
 class PermissionException(BaseApiException):
@@ -73,5 +73,5 @@ class PermissionException(BaseApiException):
     权限异常类
     """
 
-    def __init__(self, msg: str):
-        super().__init__(code=403, msg=msg)
+    def __init__(self, message: str):
+        super().__init__(code=10403, message=message)

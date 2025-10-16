@@ -15,13 +15,13 @@ class Response(BaseModel, Generic[T]):
     Attributes:
         status_code (int): HTTP状态码，默认200
         code (int): 业务状态码，默认10200(成功)
-        msg (str): 消息描述，默认"成功"
+        message (str): 消息描述，默认"成功"
         data (T | None): 响应数据，支持任意类型，默认为None
     """
 
     status_code: int = 200
     code: int = 10200
-    msg: str = "成功"
+    message: str = "成功"
     data: T | None = None
 
     @model_serializer
@@ -35,7 +35,7 @@ class Response(BaseModel, Generic[T]):
             序列化后的字典
         """
 
-        result = {"code": self.code, "msg": self.msg}
+        result = {"code": self.code, "message": self.message}
         if self.data is not None:
             result["data"] = (
                 self.data.model_dump()
@@ -62,37 +62,37 @@ class Response(BaseModel, Generic[T]):
 
     @classmethod
     def success(
-        cls, *, status_code: int = 200, code: int = 10200, msg: str = "成功", data: T | None = None
+        cls, *, status_code: int = 200, code: int = 10200, message: str = "成功", data: T | None = None
     ) -> "Response[T]":
         """创建成功响应
 
         Args:
             code: 业务状态码，默认10200
-            msg: 成功消息，默认"成功"
+            message: 成功消息，默认"成功"
             data: 可选的成功数据
 
         Returns:
             构造好的成功响应实例
         """
 
-        return cls(status_code=status_code, code=code, msg=msg, data=data).to_response(status_code)
+        return cls(status_code=status_code, code=code, message=message, data=data).to_response(status_code)
 
     @classmethod
     def fail(
-        cls, *, status_code: int = 200, code: int = 10500, msg: str = "失败", data: T | None = None
+        cls, *, status_code: int = 200, code: int = 10500, message: str = "失败", data: T | None = None
     ) -> "Response[T]":
         """创建失败响应
 
         Args:
             code: 业务状态码，默认10500
-            msg: 错误消息，默认"失败"
+            message: 错误消息，默认"失败"
             data: 可选的错误数据
 
         Returns:
             构造好的失败响应实例
         """
 
-        return cls(status_code=status_code, code=code, msg=msg, data=data).to_response(status_code)
+        return cls(status_code=status_code, code=code, message=message, data=data).to_response(status_code)
 
     @classmethod
     def page(cls, *, status_code: int = 200, code: int = 10200, rows: list[T], total: int) -> "Response[T]":
