@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from src import dal
-from src.exception.exception import exception
+from src.exception import exception
 from pathlib import Path
 
 
