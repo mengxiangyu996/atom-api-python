@@ -1,8 +1,8 @@
 [project]
-name = "ruoyi-py"
-version = "0.0.1"
-description = "Add your description here"
-readme = "README.md"
+name = "atom-api"
+version = "0.1.0"
+description = "atom-api python"
+readme = "readme.md"
 requires-python = ">=3.10"
 dependencies = [
     "bcrypt>=5.0.0",
@@ -12,9 +12,7 @@ dependencies = [
     "pyjwt>=2.10.1",
     "pymysql>=1.1.2",
     "redis>=6.4.0",
-    "requests>=2.32.5",
     "sqlmodel>=0.0.27",
-    "user-agents>=2.2.0",
     "uvicorn[standard]>=0.37.0",
 ]
 

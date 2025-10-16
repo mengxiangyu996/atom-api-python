@@ -14,13 +14,13 @@ class Response(BaseModel, Generic[T]):
 
     Attributes:
         status_code (int): HTTP状态码，默认200
-        code (int): 业务状态码，默认200(成功)
+        code (int): 业务状态码，默认10200(成功)
         msg (str): 消息描述，默认"成功"
         data (T | None): 响应数据，支持任意类型，默认为None
     """
 
     status_code: int = 200
-    code: int = 200
+    code: int = 10200
     msg: str = "成功"
     data: T | None = None
 
@@ -62,12 +62,12 @@ class Response(BaseModel, Generic[T]):
 
     @classmethod
     def success(
-        cls, *, status_code: int = 200, code: int = 200, msg: str = "成功", data: T | None = None
+        cls, *, status_code: int = 200, code: int = 10200, msg: str = "成功", data: T | None = None
     ) -> "Response[T]":
         """创建成功响应
 
         Args:
-            code: 业务状态码，默认200
+            code: 业务状态码，默认10200
             msg: 成功消息，默认"成功"
             data: 可选的成功数据
 
@@ -79,12 +79,12 @@ class Response(BaseModel, Generic[T]):
 
     @classmethod
     def fail(
-        cls, *, status_code: int = 200, code: int = 500, msg: str = "失败", data: T | None = None
+        cls, *, status_code: int = 200, code: int = 10500, msg: str = "失败", data: T | None = None
     ) -> "Response[T]":
         """创建失败响应
 
         Args:
-            code: 业务状态码，默认500
+            code: 业务状态码，默认10500
             msg: 错误消息，默认"失败"
             data: 可选的错误数据
 
@@ -95,7 +95,7 @@ class Response(BaseModel, Generic[T]):
         return cls(status_code=status_code, code=code, msg=msg, data=data).to_response(status_code)
 
     @classmethod
-    def page(cls, *, status_code: int = 200, code: int = 200, rows: list[T], total: int) -> "Response[T]":
+    def page(cls, *, status_code: int = 200, code: int = 10200, rows: list[T], total: int) -> "Response[T]":
         """创建分页响应
 
         Args:

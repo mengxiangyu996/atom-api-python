@@ -1,11 +1,11 @@
 # 项目相关配置
-ruoyi:
+app:
   # 名称
-  name: ruoyi-py
+  name: atom-api
   # 版本
-  version: 0.0.1
+  version: 0.1.0
   # 版权年份
-  copyright: 2024
+  copyright: 2025
   # 域名
   domain: localhost:3000
   # 启用SSL
@@ -29,7 +29,7 @@ mysql:
   # 端口，默认为3306
   port: 3306
   # 数据库名称
-  database: ruoyi-py
+  database: atom-api
   # 用户名
   username: root
   # 密码

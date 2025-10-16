@@ -1,9 +1,9 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
-from framework.response import Response
+from src.response.response import Response
 
 
-class BaseAppException(Exception):
+class BaseApiException(Exception):
     """
     基础应用异常类
     """
@@ -21,7 +21,7 @@ class ExceptionHandler:
 
     @staticmethod
     async def base_app_exception_handler(
-        request: Request, exc: BaseAppException
+        request: Request, exc: BaseApiException
     ) -> JSONResponse:
         """
         异常处理方法
@@ -36,12 +36,12 @@ def register_exception(app: FastAPI):
     """
 
     app.add_exception_handler(
-        BaseAppException,
+        BaseApiException,
         ExceptionHandler.base_app_exception_handler,
     )
 
 
-class ValidationException(BaseAppException):
+class ValidationException(BaseApiException):
     """
     请求参数校验异常类
     """
@@ -50,7 +50,7 @@ class ValidationException(BaseAppException):
         super().__init__(code=500, msg=msg)
 
 
-class BusinessException(BaseAppException):
+class BusinessException(BaseApiException):
     """
     业务异常类
     """
@@ -59,7 +59,7 @@ class BusinessException(BaseAppException):
         super().__init__(code=500, msg=msg)
 
 
-class AuthException(BaseAppException):
+class AuthException(BaseApiException):
     """
     认证异常类
     """
@@ -68,7 +68,7 @@ class AuthException(BaseAppException):
         super().__init__(code=401, msg=msg)
 
 
-class PermissionException(BaseAppException):
+class PermissionException(BaseApiException):
     """
     权限异常类
     """

@@ -1,7 +1,7 @@
 import bcrypt
 import jwt
 from config.config import config
-from common import exception
+from src.exception import exception
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -48,7 +48,7 @@ class Security:
             "user": current_user,
             "exp": int(now.timestamp() + 86400),  # 过期时间
             "iat": int(now.timestamp()),  # 签发时间
-            "iss": config.ruoyi.name,  # 签发者
+            "iss": config.app.name,  # 签发者
         }
 
         try:

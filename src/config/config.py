@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field, ConfigDict
 from pydantic_yaml import parse_yaml_file_as
 
 
-class RuoYiConfig(BaseModel):
+class AppConfig(BaseModel):
     """
     项目相关配置
     """
@@ -123,7 +123,7 @@ class Config(BaseModel):
     配置文件
     """
 
-    ruoyi: RuoYiConfig = Field(description="项目相关配置")
+    app: AppConfig = Field(description="项目相关配置")
     server: ServerConfig = Field(description="开发环境配置")
     mysql: MysqlConfig = Field(description="数据库配置")
     redis: RedisConfig = Field(description="redis配置")

@@ -1,17 +1,17 @@
-from config.config import config
+from src.config.config import config
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from framework import dal
-from common import exception
+from src import dal
+from src.exception.exception import exception
 from pathlib import Path
 
 
 def main() -> FastAPI:
     # 创建FastAPI实例
     app = FastAPI(
-        title=config.ruoyi.name,
-        version=config.ruoyi.version
+        title=config.app.name,
+        version=config.app.version
     )
 
     async def startup_event():
@@ -54,7 +54,7 @@ def main() -> FastAPI:
     # admin_dir.mkdir(parents=True, exist_ok=True)
     # app.mount(path="/admin", app=StaticFiles(directory=admin_dir), name="admin")
     # 设置上传文件目录
-    storage_dir = Path(config.ruoyi.upload_path)
+    storage_dir = Path(config.app.upload_path)
     storage_dir.mkdir(parents=True, exist_ok=True)
     app.mount(path="/storage",
               app=StaticFiles(directory=storage_dir), name="storage")

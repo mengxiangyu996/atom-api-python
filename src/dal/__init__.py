@@ -1,5 +1,5 @@
-from framework.dal.database import _Database
-from framework.dal.redis import _Redis
+from dal.database import _Database
+from dal.redis import _Redis
 
 db: _Database | None = None
 rds: _Redis | None = None

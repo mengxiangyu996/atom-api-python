@@ -1,5 +1,5 @@
 from typing import TypeVar, Generic
-from framework import dal
+import dal
 from sqlmodel import SQLModel
 
 
