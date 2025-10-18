@@ -3,7 +3,7 @@
 
 ## 后端运行
     # 克隆项目
-    git clone https://github.com/mengxiangyu996/atom-api-python.git
+    git clone https://github.com/fivepmcoder/atom-api-python.git
 
     # 进入项目目录
     cd atom-api-python
@@ -22,10 +22,10 @@
     python main.py
 
 ## Star History
-<a href="https://www.star-history.com/#mengxiangyu996/atom-api-python&Date">
+<a href="https://www.star-history.com/#fivepmcoder/atom-api-python&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=mengxiangyu996/atom-api-python&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=mengxiangyu996/atom-api-python&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=mengxiangyu996/atom-api-python&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=fivepmcoder/atom-api-python&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=fivepmcoder/atom-api-python&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=fivepmcoder/atom-api-python&type=Date" />
  </picture>
 </a>
